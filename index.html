@@ -5,50 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>李易卓 | 个人简历 | 法学与AI开发者</title>
     <style>
-        :root {
-            --primary: #00f2fe; /* 科技青 */
-            --accent: #7000ff; /* 极客紫 */
-            --bg: #050505;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text: #e0e0e0;
-            --text-muted: #94a3b8;
-            --border: rgba(255, 255, 255, 0.1);
-            --transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-        }
+       :root {
+    /* 核心配色修改 */
+    --primary: #00f2fe;        /* 保持科技青，用于强调 */
+    --accent: #ffdb58;         /* 换成琥珀金，用于重要标题，对比度极高 */
+    --bg: #050505;             /* 纯黑底色 */
+    --card-bg: rgba(0, 0, 0, 0.7); /* 深黑半透明卡片，像黑色玻璃一样压住背后的流光 */
+    --text: #ffffff;           /* 纯白文字 */
+    --text-muted: #cbd5e1;     /* 浅灰色辅助文字 */
+    --border: rgba(0, 242, 254, 0.3); /* 带青色透明度的边框 */
+    --transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
-        /* 找到 body 样式 */
-body {
-    font-family: 'Inter', -apple-system, system-ui, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
-    
-    /* 添加这一行：深色文字阴影 */
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9); /* 让文字在流光前更立体、更清晰 */
-}
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
         /* --- 动态视频背景 CSS --- */
         .video-bg-container {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -1; 
-    overflow: hidden;
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            overflow: hidden;
+        }
 
-.video-bg {
-    width: 100%; height: 100%;
-    object-fit: cover; /* 关键：这会让视频像壁纸一样铺满 */
-}
+        .video-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.video-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(5, 5, 5, 0.5); /* 遮罩：让背景暗一点，突出你的文字 */
-}
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.6); /* 遮罩层，确保文字可读 */
+        }
 
         /* --- 页面布局 CSS --- */
         .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
@@ -100,16 +103,14 @@ body {
         @media (max-width: 768px) { .hero h1 { font-size: 3rem; } }
     </style>
 </head>
+<body>
 
- body {
-    font-family: 'Inter', -apple-system, system-ui, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
-    
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9); /* 让文字在流光前更立体、更清晰 */
-}
+    <div class="video-bg-container">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
 
     <nav>
         <div class="container nav-content">
