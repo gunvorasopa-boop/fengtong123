@@ -97,7 +97,15 @@
             text-decoration: none; display: inline-flex; align-items: center; transition: var(--transition);
         }
         .btn-main { background: var(--primary); color: #000; }
-        .btn-sub { border: 1px solid var(--border); color: var(--text); }
+        .btn-sub { 
+    background: var(--text); /* 使用你的文本颜色作为背景 */
+    color: #050505; /* 文字改为深黑色 */
+    border: none;
+}
+.btn-sub:hover {
+    background: var(--primary); /* 悬停时变青色 */
+    color: #000;
+}
 
         section { padding: 5rem 0; }
         h2 { font-size: 2rem; margin-bottom: 2.5rem; }
@@ -126,7 +134,7 @@
             <h1>不务正业的<br><span style="color: var(--primary)">法学生</span> / AI 开发者</h1>
             <p class="hero-tagline">
                 喜欢用底层逻辑解决问题的 ISTP 型人格 <br>
-                在星辰科技 2 天内创造 1,200 元利润，极速入职转化 [cite: 71]
+                在星辰科技 2 天内创造 1,200 元利润，极速入职转化
             </p>
             <div style="display: flex; gap: 1.2rem;">
                 <a href="#projects" class="btn btn-main">查看项目成果</a>
@@ -140,14 +148,14 @@
                 <div class="card">
                     <span class="badge">企业实习</span>
                     <h3 style="color:var(--primary); margin: 1rem 0;">销售实习生 @ 星辰科技</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">2026.02 - 2026.03 [cite: 71]</p>
-                    <p>入职 2 天即成功转化首单，为公司创造 1,200 元利润，展现极强学习能力 [cite: 71]。</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">2026.02 - 2026.03 </p>
+                    <p>入职 2 天即成功转化首单，为公司创造 1,200 元利润，展现极强学习能力。</p>
                 </div>
                 <div class="card">
                     <span class="badge">自由职业</span>
                     <h3 style="color:var(--primary); margin: 1rem 0;">PPT 演示设计师</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">2025.09 - 至今 [cite: 67]</p>
-                    <p>专注竞赛级视觉逻辑梳理，已实现 180+ 元商业变现，助力路演成功率 [cite: 67]。</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">2025.09 - 至今</p>
+                    <p>专注竞赛级视觉逻辑梳理，已实现 180+ 元商业变现，助力路演成功率。</p>
                 </div>
             </div>
         </section>
@@ -156,19 +164,19 @@
             <h2>项目工程 / PROJECTS</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>织梦译千年 [cite: 112]</h3>
+                    <h3>织梦译千年 </h3>
                     <div style="margin: 1rem 0;"><span class="badge">AI 纹样</span><span class="badge">非遗创新</span></div>
-                    <p>7 天内完成策划路演，获教授推荐信，利用 AI 赋能云锦纹样数字化 [cite: 73, 75]。</p>
+                    <p>7 天内完成策划路演，获教授推荐信，利用 AI 赋能云锦纹样数字化 。</p>
                 </div>
                 <div class="card">
-                    <h3>CET-4 单词猎人 [cite: 60]</h3>
+                    <h3>CET-4 单词猎人 </h3>
                     <div style="margin: 1rem 0;"><span class="badge">独立开发</span><span class="badge">HTML/CSS</span></div>
-                    <p>针对考证痛点开发的互动网页游戏，独立跑通代码逻辑并部署上线 [cite: 48, 58]。</p>
+                    <p>针对考证痛点开发的互动网页游戏，独立跑通代码逻辑并部署上线 。</p>
                 </div>
                 <div class="card">
-                    <h3>追光日记 [cite: 49]</h3>
+                    <h3>追光日记 </h3>
                     <div style="margin: 1rem 0;"><span class="badge">高三激励</span><span class="badge">AI 辅助</span></div>
-                    <p>面向高三学生的激励平台，利用 Prompt Engineering 跑通核心后端代码 [cite: 48, 49]。</p>
+                    <p>面向高三学生的激励平台，利用 Prompt Engineering 跑通核心后端代码 。</p>
                 </div>
             </div>
         </section>
@@ -177,9 +185,9 @@
             <h2>学术根基 / FOUNDATION</h2>
             <div class="grid">
                 <div class="card">
-                    <h4 style="color:var(--primary);">电子科技大学 [cite: 73]</h4>
-                    <p style="font-weight:600;">数字人文菁英营 · 优秀营员 [cite: 73, 105]</p>
-                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">51 学时高强度训练，掌握数字化科研底层逻辑 [cite: 81]。</p>
+                    <h4 style="color:var(--primary);">电子科技大学 </h4>
+                    <p style="font-weight:600;">数字人文菁英营 · 优秀营员 </p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">51 学时高强度训练，掌握数字化科研底层逻辑 。</p>
                 </div>
                 <div class="card">
                     <h4 style="color:var(--primary);">山西财经大学 </h4>
