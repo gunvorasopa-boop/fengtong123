@@ -100,14 +100,16 @@ body {
         @media (max-width: 768px) { .hero h1 { font-size: 3rem; } }
     </style>
 </head>
-<body>
 
-    <div class="video-bg-container">
-    <video autoplay muted loop playsinline class="video-bg">
-        <source src="background.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay"></div>
-</div>
+ body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9); /* 让文字在流光前更立体、更清晰 */
+}
 
     <nav>
         <div class="container nav-content">
