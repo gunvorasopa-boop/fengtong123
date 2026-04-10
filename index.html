@@ -6,394 +6,245 @@
     <title>李易卓 | 个人简历 | 法学与AI开发者</title>
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-glow: rgba(99, 102, 241, 0.5);
-            --accent: #a855f7;
-            --bg: #ffffff;
-            --text: #1f2937;
-            --text-muted: #6b7280;
-            --card-bg: #f9fafb;
-            --border: #e5e7eb;
-            --nav-bg: rgba(255, 255, 255, 0.8);
-            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        [data-theme="dark"] {
-            --bg: #0f172a;
-            --text: #f1f5f9;
+            --primary: #00f2fe; /* 科技青 */
+            --accent: #7000ff; /* 极客紫 */
+            --bg: #050505;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #e0e0e0;
             --text-muted: #94a3b8;
-            --card-bg: #1e293b;
-            --border: #334155;
-            --nav-bg: rgba(15, 23, 42, 0.8);
+            --border: rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --primary: #3b82f6;
+            --accent: #8b5cf6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
             transition: var(--transition);
-            overflow-x: hidden;
         }
 
-        /* Layout */
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
-        section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-        /* Navigation */
+        /* Navigation - Cyber Style */
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 100;
-            background: var(--nav-bg); backdrop-filter: blur(12px);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
-        .nav-content {
-            display: flex; justify-content: space-between; align-items: center;
-            height: 4rem;
-        }
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-        .nav-links a { 
-            text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.9rem;
-            opacity: 0.7; transition: var(--transition);
-        }
-        .nav-links a:hover { opacity: 1; color: var(--primary); }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; height: 4.5rem; }
+        .logo { font-weight: 900; font-size: 1.4rem; background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* Hero Section */
+        /* Hero - ISTP Focus */
         .hero { 
-            display: flex; flex-direction: column; justify-content: center; min-height: 80vh;
-            background: radial-gradient(circle at top right, var(--primary-glow), transparent 40%);
+            padding: 10rem 0 5rem;
+            background: radial-gradient(circle at 80% 20%, rgba(112, 0, 255, 0.15), transparent 40%);
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: -0.05em; }
-        .hero-tagline { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 600px; }
-        .badge-container { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem; }
-        .badge {
-            padding: 0.4rem 1rem; border-radius: 99px; font-size: 0.85rem; font-weight: 600;
-            background: var(--card-bg); border: 1px solid var(--border);
-        }
-        .badge.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .hero h1 { font-size: 4.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -2px; }
+        .hero-tagline { font-size: 1.4rem; color: var(--text-muted); margin-bottom: 3rem; border-left: 4px solid var(--primary); padding-left: 1.5rem; }
 
-        /* Tabs System */
-        .tabs-header { display: flex; gap: 1rem; border-bottom: 2px solid var(--border); margin-bottom: 2rem; }
-        .tab-btn {
-            padding: 0.75rem 1.5rem; border: none; background: none; color: var(--text-muted);
-            cursor: pointer; font-weight: 600; border-bottom: 2px solid transparent;
-            margin-bottom: -2px; transition: var(--transition);
-        }
-        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
-        .tab-pane { display: none; animation: fadeIn 0.4s ease; }
-        .tab-pane.active { display: block; }
+        /* Grid Layout */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
 
-        /* Experience & Project Cards */
+        /* Neo-Card */
         .card {
-            background: var(--card-bg); border: 1px solid var(--border);
-            padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;
-            transition: var(--transition); position: relative; overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
         }
-        .card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 10px 30px -10px var(--primary-glow); }
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-        .card-title { font-size: 1.25rem; font-weight: 700; color: var(--primary); }
-        .card-meta { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
-        .card ul { padding-left: 1.2rem; margin-top: 1rem; }
-        .card li { margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.95rem; }
-        .card li strong { color: var(--text); }
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
+            transform: translateY(-5px);
+        }
 
-        /* Stats Grid */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .stat-item { text-align: center; padding: 1.5rem; border-radius: 12px; background: var(--card-bg); }
-        .stat-value { font-size: 2rem; font-weight: 800; color: var(--accent); display: block; }
-        .stat-label { font-size: 0.9rem; color: var(--text-muted); }
+        /* Tabs - Legal Logic Style */
+        .tabs-nav { display: flex; gap: 0.5rem; background: rgba(255,255,255,0.03); padding: 0.5rem; border-radius: 12px; margin-bottom: 2rem; }
+        .tab-trigger {
+            padding: 0.8rem 1.5rem; border: none; background: none; color: var(--text-muted);
+            border-radius: 8px; cursor: pointer; font-weight: 600; transition: var(--transition);
+        }
+        .tab-trigger.active { background: var(--primary); color: #000; }
+        .tab-content { display: none; animation: slideIn 0.4s ease-out; }
+        .tab-content.active { display: block; }
+
+        @keyframes slideIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+
+        /* Badges */
+        .badge {
+            display: inline-block; padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.75rem;
+            font-weight: 700; text-transform: uppercase; margin: 0 0.5rem 0.5rem 0;
+            background: rgba(0, 242, 254, 0.1); color: var(--primary); border: 1px solid rgba(0, 242, 254, 0.2);
+        }
 
         /* Buttons */
+        .cta-group { display: flex; gap: 1.2rem; }
         .btn {
-            padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer;
-            transition: var(--transition); border: none; display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 1rem 2rem; border-radius: 10px; font-weight: 700; cursor: pointer;
+            text-decoration: none; display: inline-flex; align-items: center; transition: var(--transition);
         }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-outline { border: 1px solid var(--border); background: transparent; color: var(--text); }
-        .btn:hover { opacity: 0.9; }
+        .btn-main { background: var(--primary); color: #000; }
+        .btn-sub { border: 1px solid var(--border); color: var(--text); }
+        .btn:hover { transform: scale(1.02); filter: brightness(1.1); }
 
-        /* Utility */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .hidden { display: none; }
-
-        /* Print Styles */
-        @media print {
-            nav, .btn, .tabs-header { display: none !important; }
-            .tab-pane { display: block !important; opacity: 1 !important; margin-bottom: 3rem; }
-            section { padding: 2rem 0; page-break-inside: avoid; }
-            body { color: black; background: white; }
-            .card { border: 1px solid #eee; background: white; }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-        }
+        @media (max-width: 768px) { .hero h1 { font-size: 3rem; } }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="container nav-content">
-            <div style="font-weight: 800; font-size: 1.2rem; color: var(--primary);">李易卓 L.YZ</div>
-            <ul class="nav-links">
-                <li><a href="#hero">主页</a></li>
-                <li><a href="#skills">技能</a></li>
-                <li><a href="#experience">经历</a></li>
-                <li><a href="#projects">项目</a></li>
-            </ul>
-            <div style="display: flex; gap: 0.5rem;">
-                <button class="btn btn-outline" id="theme-toggle" style="padding: 0.5rem;">🌓</button>
-                <button class="btn btn-primary" onclick="window.print()" style="padding: 0.5rem 1rem; font-size: 0.8rem;">PDF 导出</button>
-            </div>
+            <div class="logo">李易卓 / LI YIZHUO</div>
+            <button class="btn btn-sub" onclick="toggleTheme()" id="theme-btn" style="padding: 0.5rem 1rem;">THEME</button>
         </div>
     </nav>
 
     <main class="container">
-        <section id="hero" class="hero">
-            <h1 id="name-display">加载中...</h1>
-            <p class="hero-tagline" id="tagline-display">致力于法律逻辑与人工智能交互的跨界探索者</p>
-            <div class="badge-container" id="skill-badges"></div>
-            <div style="display: flex; gap: 1rem;">
-                <button class="btn btn-primary" onclick="copyEmail()">复制邮箱</button>
-                <a id="tel-link" class="btn btn-outline">拨打电话</a>
+        <section class="hero">
+            <h1>不务正业的<br><span style="color: var(--primary)">法学生</span> / AI 开发者</h1>
+            <p class="hero-tagline">
+                [cite: 3] 喜欢用底层逻辑解决问题的 ISTP 型人格 [cite: 3]<br>
+                [cite: 71] 在星辰科技通过新人培训并于入职 2 天内创造 1,200 元利润 [cite: 71]
+            </p>
+            <div class="cta-group">
+                <a href="mailto:1824339936@qq.com" class="btn btn-main">联系沟通</a>
+                <button class="btn btn-sub" onclick="window.print()">导出简历 PDF</button>
             </div>
-            
-            <div class="stats-grid" id="highlight-stats"></div>
         </section>
 
-        <section id="skills">
-            <h2 style="margin-bottom: 2rem;">专业技能</h2>
-            <div id="skills-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;"></div>
+        <section id="experience" style="padding-bottom: 5rem;">
+            <h2 style="margin-bottom: 2.5rem; font-size: 2rem;">经历追踪 / TIMELINE</h2>
+            <div class="tabs-nav" id="exp-nav"></div>
+            <div id="exp-container"></div>
         </section>
 
-        <section id="experience">
-            <h2 style="margin-bottom: 2rem;">工作经历</h2>
-            <div class="tabs-header" id="exp-tabs"></div>
-            <div id="exp-content"></div>
+        <section id="projects" style="padding-bottom: 5rem;">
+            <h2 style="margin-bottom: 2.5rem; font-size: 2rem;">项目工程 / PROJECTS</h2>
+            <div class="grid" id="project-grid"></div>
         </section>
 
-        <section id="projects">
-            <h2 style="margin-bottom: 2rem;">项目作品</h2>
-            <div class="tabs-header" id="proj-tabs"></div>
-            <div id="proj-content"></div>
-        </section>
-
-        <section id="education">
-            <h2 style="margin-bottom: 2rem;">教育与荣誉</h2>
-            <div id="edu-content"></div>
+        <section id="education" style="padding-bottom: 5rem;">
+            <h2 style="margin-bottom: 2.5rem; font-size: 2rem;">学术根基 / EDUCATION</h2>
+            <div class="grid" id="edu-grid"></div>
         </section>
     </main>
 
-    <footer class="container" style="padding: 4rem 0; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
-        <p>© 2026 李易卓. 构建于底层逻辑与 AI 驱动. 最后更新: 2026-04-10</p>
-    </footer>
-
     <script>
-        const resume = {
-            name: "李易卓",
-            contact: {
-                tel: "13333562292",
-                email: "1824339936@qq.com",
-                loc: "山西太原"
-            },
-            highlights: [
-                { label: "AI 创收利润", value: "1,200+" },
-                { label: "项目学时", value: "51h" },
-                { label: "最快成单", value: "2天" },
-                { label: "设计变现", value: "180+" }
-            ],
-            skills: [
-                { category: "AI 技术应用", items: ["Stable Diffusion 精准生图", "AI 视频创作工具", "Prompt Engineering (提示词工程)", "AI 辅助编程落地"] },
-                { category: "办公与设计", items: ["竞赛级 PPT 排版", "商业视觉设计", "逻辑可视化", "路演辅助设计"] },
-                { category: "知识管理", items: ["数据库管理应用", "底层逻辑问题拆解", "数字化知识库构建", "信息快速检索"] }
-            ],
+        const data = {
             experience: [
                 {
-                    id: "work-1",
-                    tab: "企业实习",
-                    company: "星辰科技有限公司",
-                    role: "销售实习生",
-                    period: "2026.02 - 2026.03",
-                    points: [
-                        "<strong>极速转化：</strong>入职 2 天即通过新人培训完成首单成交，刷新公司最快成单纪录。",
-                        "<strong>业绩卓越：</strong>短时间内创造 1,200 元净利润，展现了极强的环境适应力。"
-                    ]
+                    cat: "企业实习",
+                    title: "销售实习生 @ 星辰科技",
+                    time: "2026.02 - 2026.03",
+                    desc: "[cite: 71] 入职 2 天即转化为第一笔订单，为公司创造 1,200 元利润 [cite: 71]"
                 },
                 {
-                    id: "work-2",
-                    tab: "自由职业",
-                    company: "个人工作室",
-                    role: "PPT 演示设计师",
-                    period: "2025.09 - 至今",
-                    points: [
-                        "<strong>商业化变现：</strong>独立承接多项竞赛、汇报类 PPT 设计业务。",
-                        "<strong>效能驱动：</strong>目前累计收益超 180 元，助力多位客户提升路演通过率。"
-                    ]
+                    cat: "自由职业",
+                    title: "PPT 演示设计师",
+                    time: "2025.09 - 至今",
+                    desc: "[cite: 67] 专注于竞赛级 PPT 视觉逻辑梳理，已实现 180+ 元商业变现 [cite: 67]"
                 }
             ],
             projects: [
                 {
-                    id: "proj-1",
-                    tab: "AI+文化",
-                    title: "“织梦译千年”云锦 AI 创新项",
-                    role: "核心成员 / 路演负责人",
-                    period: "2026.01",
-                    points: [
-                        "<strong>敏捷开发：</strong>7 天内完成策划、PPT 制作及最终路演，获得教授推荐信。",
-                        "<strong>技术融合：</strong>运用 AI 绘制精美纹样并制作展示视频，实现传统工艺数字化。"
-                    ]
+                    title: "织梦译千年",
+                    tags: ["AI 纹样", "数字人文"],
+                    desc: "[cite: 73] 获得教授推荐信，通过 AI 赋能非遗纹样设计与视频创作 [cite: 73]"
                 },
                 {
-                    id: "proj-2",
-                    tab: "独立应用",
                     title: "CET-4 单词猎人",
-                    role: "独立开发者",
-                    period: "2025.12 - 2026.01",
-                    points: [
-                        "<strong>互动学习：</strong>开发基于网页的互动单词记忆游戏，解决考证痛点。",
-                        "<strong>全栈实现：</strong>独立完成逻辑设计并部署于 GitHub Pages。"
-                    ]
+                    tags: ["独立开发", "游戏化"],
+                    desc: "[cite: 57, 58] 针对考证痛点开发的互动网页游戏，部署于 GitHub [cite: 57, 58]"
                 },
                 {
-                    id: "proj-3",
-                    tab: "社会化",
                     title: "追光日记",
-                    role: "创始人 / 开发者",
-                    period: "2025.10 - 2025.12",
-                    points: [
-                        "<strong>心理激励：</strong>面向高三群体提供倒计时与日记激励工具。",
-                        "<strong>逻辑跑通：</strong>通过 AI 辅助成功跑通后端代码，支持用户激励数据管理。"
-                    ]
+                    tags: ["高三激励", "后端逻辑"],
+                    desc: "[cite: 49] 面向高三学生的激励平台，通过 AI 辅助跑通底层核心代码 [cite: 49]"
                 }
             ],
-            education: [
+            edu: [
                 {
-                    school: "电子科技大学 (UESTC)",
-                    major: "国际大学生数字人文菁英前训营",
-                    period: "2026.01",
-                    desc: "荣获<strong>“优秀营员”</strong>称号，获教授实名推荐信，系统学习数字人文领域知识。"
+                    school: "电子科技大学",
+                    meta: "数字人文菁英营",
+                    award: "[cite: 81, 107] 优秀营员 / 51学时结业 [cite: 81, 107]"
                 },
                 {
                     school: "山西财经大学",
-                    major: "法学专业 (本科大一)",
-                    period: "2025.09 - 至今",
-                    desc: "核心绩点保持领先，担任生活委员；专注法学思维与逻辑建模。 [cite: 5, 8, 12, 13, 27]"
+                    meta: "法学专业 (大一)",
+                    award: "[cite: 3] 主修法律基础与逻辑学 [cite: 3]"
                 }
             ]
         };
 
-        // Render Functions
-        function init() {
-            document.getElementById('name-display').innerText = resume.name;
-            document.getElementById('tel-link').href = `tel:${resume.contact.tel}`;
-            
-            // Stats
-            const statsHtml = resume.highlights.map(s => `
-                <div class="stat-item">
-                    <span class="stat-value">${s.value}</span>
-                    <span class="stat-label">${s.label}</span>
-                </div>
-            `).join('');
-            document.getElementById('highlight-stats').innerHTML = statsHtml;
+        // Render Experience Tabs
+        const expNav = document.getElementById('exp-nav');
+        const expContainer = document.getElementById('exp-container');
+        data.experience.forEach((e, i) => {
+            const btn = document.createElement('button');
+            btn.className = `tab-trigger ${i===0?'active':''}`;
+            btn.innerText = e.cat;
+            btn.onclick = () => {
+                document.querySelectorAll('.tab-trigger').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.tab-content').forEach((c, idx)=>c.classList.toggle('active', i===idx));
+            };
+            expNav.appendChild(btn);
 
-            // Badges
-            const badges = ["ISTP 人格", "法学背景", "AI 开发者", "PPT 专家", "CET-4/6"];
-            document.getElementById('skill-badges').innerHTML = badges.map((b, i) => `
-                <span class="badge ${i < 2 ? 'active' : ''}">${b}</span>
-            `).join('');
-
-            // Skills
-            const skillsHtml = resume.skills.map(s => `
+            const content = document.createElement('div');
+            content.className = `tab-content ${i===0?'active':''}`;
+            content.innerHTML = `
                 <div class="card">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">${s.category}</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                        ${s.items.map(item => `<span class="badge">${item}</span>`).join('')}
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                        <h3 style="color:var(--primary); font-size:1.5rem;">${e.title}</h3>
+                        <span style="font-weight:700; color:var(--text-muted)">${e.time}</span>
                     </div>
+                    <p>${e.desc}</p>
                 </div>
-            `).join('');
-            document.getElementById('skills-container').innerHTML = skillsHtml;
-
-            // Experience Tabs
-            renderTabs('exp', resume.experience, 'company');
-            renderTabs('proj', resume.projects, 'title');
-            
-            // Education
-            const eduHtml = resume.education.map(e => `
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">${e.school}</div>
-                        <div class="card-meta">${e.period}</div>
-                    </div>
-                    <div style="font-weight: 600; margin-bottom: 0.5rem;">${e.major}</div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">${e.desc}</p>
-                </div>
-            `).join('');
-            document.getElementById('edu-content').innerHTML = eduHtml;
-        }
-
-        function renderTabs(prefix, data, titleKey) {
-            const tabsHeader = document.getElementById(`${prefix}-tabs`);
-            const tabsContent = document.getElementById(`${prefix}-content`);
-            
-            data.forEach((item, index) => {
-                const btn = document.createElement('button');
-                btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
-                btn.innerText = item.tab || item[titleKey];
-                btn.onclick = () => switchTab(prefix, index);
-                tabsHeader.appendChild(btn);
-
-                const pane = document.createElement('div');
-                pane.className = `tab-pane ${index === 0 ? 'active' : ''}`;
-                pane.id = `${prefix}-pane-${index}`;
-                pane.innerHTML = `
-                    <div class="card">
-                        <div class="card-header">
-                            <div>
-                                <div class="card-title">${item[titleKey]}</div>
-                                <div style="font-weight: 600; font-size: 1rem;">${item.role || ''}</div>
-                            </div>
-                            <div class="card-meta">${item.period}</div>
-                        </div>
-                        <ul>${item.points.map(p => `<li>${p}</li>`).join('')}</ul>
-                    </div>
-                `;
-                tabsContent.appendChild(pane);
-            });
-        }
-
-        function switchTab(prefix, index) {
-            document.querySelectorAll(`#${prefix}-tabs .tab-btn`).forEach((b, i) => {
-                b.classList.toggle('active', i === index);
-            });
-            document.querySelectorAll(`#${prefix}-content .tab-pane`).forEach((p, i) => {
-                p.classList.toggle('active', i === index);
-            });
-        }
-
-        function copyEmail() {
-            navigator.clipboard.writeText(resume.contact.email);
-            alert('邮箱地址已复制到剪贴板');
-        }
-
-        // Theme Toggle
-        const themeBtn = document.getElementById('theme-toggle');
-        themeBtn.onclick = () => {
-            const isDark = document.body.getAttribute('data-theme') === 'dark';
-            document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        };
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+            `;
+            expContainer.appendChild(content);
         });
 
-        init();
+        // Render Projects
+        const projGrid = document.getElementById('project-grid');
+        data.projects.forEach(p => {
+            projGrid.innerHTML += `
+                <div class="card">
+                    <h3 style="margin-bottom:1rem;">${p.title}</h3>
+                    <div style="margin-bottom:1rem;">${p.tags.map(t=>`<span class="badge">${t}</span>`).join('')}</div>
+                    <p style="font-size:0.95rem; color:var(--text-muted)">${p.desc}</p>
+                </div>
+            `;
+        });
+
+        // Render Edu
+        const eduGrid = document.getElementById('edu-grid');
+        data.edu.forEach(e => {
+            eduGrid.innerHTML += `
+                <div class="card" style="padding:1.5rem 2rem;">
+                    <h4 style="color:var(--primary);">${e.school}</h4>
+                    <p style="font-weight:600;">${e.meta}</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">${e.award}</p>
+                </div>
+            `;
+        });
+
+        function toggleTheme() {
+            const theme = document.body.getAttribute('data-theme');
+            document.body.setAttribute('data-theme', theme === 'light' ? 'dark' : 'light');
+        }
     </script>
 </body>
 </html>
