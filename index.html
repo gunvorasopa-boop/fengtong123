@@ -18,14 +18,17 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
-        body {
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
+        /* 找到 body 样式 */
+body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    
+    /* 添加这一行：深色文字阴影 */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9); /* 让文字在流光前更立体、更清晰 */
+}
         /* --- 动态视频背景 CSS --- */
         .video-bg-container {
     position: fixed;
